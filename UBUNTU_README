@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------------
+Dev Env: Ubuntu 13.04
+--------------------------------------------------------------------------------------
+
+INstall Prerequisites
+--------------------------------------------------------------------------------------
+ sudo apt-get install python2.7
+sudo apt-get install flac
+sudo apt-get install python-pyaudio
+--------------------------------------------------------------------------------------
+Record Sound
+--------------------------------------------------------------------------------------
+Execute: record_sound_as_wav
+$ cd ~/Downloads/gspeech-py-master/scripts
+$ python recordSound_as_WAV_example.py 
+--------------------------------------------------------------------------------------
+Convert WAV to Flac format
+--------------------------------------------------------------------------------------
+flac --keep-foreign-metadata ~/Downloads/gspeech-py-master/scripts/sndClip.wav 
+--------------------------------------------------------------------------------------
+Speech to text API Call
+--------------------------------------------------------------------------------------
+Execute: gspeect_to_text
+$ cd ~/Downloads/gspeech-py-master/scripts
+$ python gspeechToText_example.py 
+
+Attempt 1: hindi text
+{"status":0,"id":"2af94cf5068588e24ff0fc8fa55b1633-1","hypotheses":[{"utterance":"####","confidence":0.27487752}]}
+
+Attempt 2: QUERY: what are you guys doing men
+{"status":0,"id":"4111fa0a19bb88707ff41829463252f3-1","hypotheses":[{"utterance":"what do you burn doing men","confidence":0.7623639}]}
+--------------------------------------------------------------------------------------
