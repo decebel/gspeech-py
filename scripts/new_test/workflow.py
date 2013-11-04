@@ -13,8 +13,13 @@ def mainWorkflow():
     print response
     text = readJson(response)
     result = findApproxMatch(text)
+    output = result[0].split('\r\n')
     print '---------------------'
-    print result
+    print 'RESULTS'
+    print '---------------------'
+    
+    for out in output:
+        print out
     print '---------------------'
     return
 

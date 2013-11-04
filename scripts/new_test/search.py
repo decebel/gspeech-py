@@ -14,8 +14,4 @@ def findApproxMatch(searchQuery, errorPercent=0.0):
     print 'Executing command: ' +command
     
     output = subprocess.Popen( command, shell=True, stdout=subprocess.PIPE,stderr=subprocess.PIPE).communicate()
-    print output
-
-
-if __name__=='__main__':
-    findApproxMatch('distao', 0.3)
+    return output
