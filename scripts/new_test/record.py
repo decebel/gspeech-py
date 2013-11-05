@@ -1,12 +1,15 @@
 
 import pyaudio
 import wave
+import os
 
 
 def recordWav(CHUNK=1024, FORMAT=pyaudio.paInt16, CHANNELS=2, RATE = 44100, RECORD_SECONDS = 3, WAVE_OUTPUT_FILENAME = "SendClip.wav"):
    
     p = pyaudio.PyAudio()
-
+    # Delete if WAVE_OUTPUT_FILENAME exists
+    os.path.exists(WAVE_OUTPUT_FILENAME) and os.remove(WAVE_OUTPUT_FILENAME)
+    
     stream = p.open(format=FORMAT,
                     channels=CHANNELS,
                     rate=RATE,
@@ -26,7 +29,7 @@ def recordWav(CHUNK=1024, FORMAT=pyaudio.paInt16, CHANNELS=2, RATE = 44100, RECO
     stream.stop_stream()
     stream.close()
     p.terminate()
-
+    
     wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
     wf.setnchannels(CHANNELS)
     wf.setsampwidth(p.get_sample_size(FORMAT))
